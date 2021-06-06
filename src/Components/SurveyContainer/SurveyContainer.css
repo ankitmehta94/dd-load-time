@@ -1,0 +1,37 @@
+.mainBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    height: 300px;
+}
+.formHeader{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.formBody{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.formFooter{
+    width: 92%;
+    margin: 4%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.ctaButton{
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    background-color: rgb(24, 97, 191);
+    padding: 5px ;
+}

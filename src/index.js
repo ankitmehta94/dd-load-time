@@ -2,8 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Modal from './Components/Modal/Modal'
 import reportWebVitals from './reportWebVitals';
 
+
+window.addEventListener('load', (event) => {
+  const element = document.createElement('div');
+  element.setAttribute('id','ys-survey');
+  const body = document.getElementsByTagName('body')[0];
+  console.log(body)
+  body.appendChild(element)
+  ReactDOM.render(
+    <React.StrictMode>
+      <Modal />
+    </React.StrictMode>,
+    element
+  );
+})
 ReactDOM.render(
   <React.StrictMode>
     <App />

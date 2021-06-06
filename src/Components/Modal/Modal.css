@@ -1,0 +1,44 @@
+.blankvoid{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background-color: black;
+    opacity: 0.7;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.modal{
+    background-color: white;
+    border: 1px solid black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.mainComponent{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+.compHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 2px;
+}
+.round{
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 100px;
+    height: 15px;
+    width: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor:pointer
+}
