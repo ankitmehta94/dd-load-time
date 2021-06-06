@@ -13,7 +13,6 @@ export const Input = ({
     return (
       <label className={"lableStyle"}>
         {rad.name}
-        {console.log(inputValue === rad.value)}
         <input
           type={"radio"}
           value={rad.value}

@@ -12,6 +12,14 @@ export const FORM_INITIAL_STATE = {
     [COLOR_KEY]: [],
     [BOOK_KEY]: '',
 }
+export const FORM_INITIAL_VALIDATION = {
+    [NAME_KEY]: null,
+    [EMAIL_KEY]: null,
+    [GENDER_KEY]: null,
+    [AGE_KEY]: null,
+    [COLOR_KEY]: null,
+    [BOOK_KEY]: null,
+}
 export const HUMAN_AGE_RANGE = 150;
 export const getAgeOptionList = () => {
     const ageArray = []

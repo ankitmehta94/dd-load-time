@@ -1,20 +1,26 @@
 import { useEffect, useState } from "react";
 import { useFormContext, FormProvider } from "../../Utils/CustomHooks";
 import "./SurveyContainer.css";
-import FormStateComponent from "../FormStateComponent/FormStateComponent";
-import { FORM_INITIAL_STATE } from "../../Constants/FormConstants";
+import {Identity, Favourites, Description, Summary} from "../FormStateComponent/FormStateComponent";
+import { FORM_INITIAL_STATE,  NAME_KEY,
+  EMAIL_KEY,
+  GENDER_KEY,
+  COLOR_KEY,
+  AGE_KEY,
+  BOOK_KEY, } from "../../Constants/FormConstants";
+import  {validateColors,validateBooks,validateGender, validateAge, returnIfValid } from "../../Utils/ValidationUtils";
 import LocalStorage from "../../Utils/LocalStorage";
 const formStates = [
-  { title: "Identity", index: 1 },
-  { title: "Details", index: 2 },
-  { title: "Favorites", index: 3 },
-  { title: "Summary", index: 4 },
+  { title: "Identity", index: 1, validation:{[NAME_KEY]: () => true, [EMAIL_KEY]: () => true}, component: Identity },
+  { title: "Details", index: 2, validation:{[AGE_KEY]: validateAge, [GENDER_KEY]: validateGender}, component: Description },
+  { title: "Favorites", index: 3, validation:{[COLOR_KEY]: validateColors, [BOOK_KEY]: validateBooks}, component: Favourites},
+  { title: "Summary", index: 4, validation:{NAME_KEY: () => true, EMAIL_KEY: () => true} , component: Summary },
 ];
 const {formState = FORM_INITIAL_STATE, index = 0} = LocalStorage.get('surveyData') || {}
 const formStateLength = formStates.length;
 const SurveyContainer = ({ closeModal }) => {
   const [formPart, setformPart] = useState(formStates[index]);
-
+  const FormComponent = formPart.component
   return (
     <FormProvider initialState={formState}>
       <div className={"mainBody"}>
@@ -24,7 +30,7 @@ const SurveyContainer = ({ closeModal }) => {
           </h2>
         </div>
         <div className={"formBody"}>
-          <FormStateComponent index={formPart.index} />
+          <FormComponent />
         </div>
         <div className={"formFooter"}>
           <LeftButton index={formPart.index} setformPart={setformPart} />
@@ -35,12 +41,21 @@ const SurveyContainer = ({ closeModal }) => {
   );
 };
 const RightButton = ({ setformPart, index }) => {
-  const { getFormState, setFormInputValue } = useFormContext();
+  const { getFormState, setFormInputValid } = useFormContext();
+  console.log(index,'<-----------------index')
   const nextState = () => {
     const formState = getFormState();
-    console.log(formState);
-    LocalStorage.set("surveyData", {formState,index});
-    setformPart(formStates[index]);
+    const validity = returnIfValid(formStates[index-1].validation,formState)
+    console.log(validity,'<-----------------validity')
+    if(validity === true){
+      LocalStorage.set("surveyData", {formState,index});
+      setformPart(formStates[index]);
+    }else{
+      Object.keys(validity).forEach((k,i) => {
+        setFormInputValid(k, validity[k])
+      })
+    }
+    
   };
   if (index === formStateLength) {
     return <button className={'ctaButton'} onClick={() => console.log("Submitted")}>Submit</button>;

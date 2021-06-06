@@ -10,7 +10,6 @@ window.addEventListener('load', (event) => {
   const element = document.createElement('div');
   element.setAttribute('id','ys-survey');
   const body = document.getElementsByTagName('body')[0];
-  console.log(body)
   body.appendChild(element)
   ReactDOM.render(
     <React.StrictMode>
