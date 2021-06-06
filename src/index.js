@@ -7,10 +7,14 @@ import reportWebVitals from './reportWebVitals';
 
 
 window.addEventListener('load', (event) => {
+  const styleLink = document.createElement('link');
+  styleLink.setAttribute('href','https://raw.githubusercontent.com/ankitmehta94/ys-survey/master/build/static/ys-survey.chunk.css')
   const element = document.createElement('div');
   element.setAttribute('id','ys-survey');
+  const head = document.getElementsByTagName('head')[0];
   const body = document.getElementsByTagName('body')[0];
   body.appendChild(element)
+  head.appendChild(styleLink)
   ReactDOM.render(
     <React.StrictMode>
       <Modal />
