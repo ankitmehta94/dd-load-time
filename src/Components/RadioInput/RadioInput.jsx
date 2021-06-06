@@ -11,7 +11,7 @@ export const Input = ({
 }) => {
   const radioElementArray = radioArray.map((rad, i) => {
     return (
-      <label className={"lableStyle"}>
+      <label className={"radioLableStyle"}>
         {rad.name}
         <input
           type={"radio"}
@@ -23,9 +23,12 @@ export const Input = ({
     );
   });
 
-  const invalidClassName = isInvalid ? " invalidInput" : "";
-  const invalidText = isInvalid ? "Invalid Format" : null;
-  return <div className={'radioContainer'}>{radioElementArray}</div>;
+  const invalidText = isInvalid ? `Please Select a ${label}` : null;
+  return <div className={'radioContainer'}>
+    <label className={"lableStyle"}>{label}</label>
+    <div>{radioElementArray}</div>
+    <span className={'invalidText'}>{invalidText}</span>
+    </div>;
 };
 
 export default Input;

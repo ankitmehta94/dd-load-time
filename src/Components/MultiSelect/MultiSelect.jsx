@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import "./MultiSelect.css";
+import debounce from "../../Utils/Debounce";
 
-const MultiSelect = ({ defaultValue = [], optionArray, placeholder, setValue, label }) => {
+const MultiSelect = ({ defaultValue = [], optionArray, placeholder, setValue, label, isInvalid }) => {
   const [itemList, setitemList] = useState(defaultValue);
   const [open, setopen] = useState(false);
   const [optionList, setoptionList] = useState(optionArray);
@@ -55,16 +56,19 @@ const MultiSelect = ({ defaultValue = [], optionArray, placeholder, setValue, la
   if (open) {
     optContainerClass += "openOptContainer";
   }
-  function onOptionSearch(str) {
+  const onOptionSearch = debounce((str) => {
     const array = searchStringArray(optionArray, str);
     setoptionList(getOptionList(array));
-  }
+  },300)
+  const invalidText = isInvalid ? `Please Select ${label}` : null;
+  const invalidClass = isInvalid?'invalidMultiSelect':''
+  const pillContainerClass = 'valueList '+invalidClass;
   const pillList = getItemList(itemList);
-  const optionDivList = getOptionList(optionList)
+  const optionDivList = open?getOptionList(optionList):null
   return (
     <div className={"multiSelectContainer"}>
     <label className={'lableStyle'}>{label}</label>
-      <div className={"valueList"} onClick={() => setopen(!open)}>
+      <div className={pillContainerClass} onClick={() => setopen(!open)}>
         {pillList.length?pillList:(<span className={'placeholderStyle'}>{placeholder}</span>)}
       </div>
       <div className={optContainerClass}>
@@ -74,6 +78,7 @@ const MultiSelect = ({ defaultValue = [], optionArray, placeholder, setValue, la
         </div>
         <div ><button onClick={() => setopen(false)} className={'valuePill floatRight'}>Done</button></div>
       </div>
+      <span className={'invalidText'}>{invalidText}</span>
     </div>
   );
 };
@@ -87,4 +92,7 @@ const searchStringArray = (array, str) => {
   }
   return newArray;
 };
+
+
+
 export default MultiSelect;

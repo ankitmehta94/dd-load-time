@@ -1,4 +1,4 @@
-import React, { useReducer, createContext, useState, useContext } from "react";
+import React, { useReducer, createContext, useState, useContext, useEffect } from "react";
 import { FORM_INITIAL_STATE, FORM_INITIAL_VALIDATION } from "../Constants/FormConstants";
 import formReducer from '../Reducer/FormReducer';
 import LocalStorage from "./LocalStorage";
@@ -16,14 +16,20 @@ export function useInputChange (keyName){
 }
 const FormContext  = createContext({getFormState: () => {}, setFormInputValue: () => {}});
 export const FormProvider = ({initialState,children}) => {
-    console.log(initialState,'<-----------------next')
     const [state, setState] = useState(initialState);
     const [valid, setValid] = useState(FORM_INITIAL_VALIDATION);
-    const setFormInputValue = (key,value ) => {
-        setState({...state,[key]:value})
+    const setFormInputValid = (validityObject) => {
+        console.log(validityObject,'<-----------------validityObject')
+        setValid({...valid,...validityObject})
     }
-    const setFormInputValid = (key,value ) => {
-        setValid({...valid,[key]:value})
+    useEffect(() => {
+        console.log(JSON.stringify(valid))
+    },[valid])
+    const setFormInputValue = (key,value ) => {
+        if(!valid[key]){
+            setFormInputValid({[key]:true})
+        }
+        setState({...state,[key]:value})
     }
     const getFormState = () => {
         return state
@@ -31,8 +37,9 @@ export const FormProvider = ({initialState,children}) => {
     const getFormValidity = () => {
         return valid
     }
+    const functionObject = {getFormState, setFormInputValue, setFormInputValid, getFormValidity}
     return (
-<FormContext.Provider value={{getFormState, setFormInputValue, setFormInputValid, getFormValidity}}>
+<FormContext.Provider value={functionObject}>
     {children}
 </FormContext.Provider>
     )

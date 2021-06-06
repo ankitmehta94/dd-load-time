@@ -1,0 +1,7 @@
+.selectClass{
+    padding:6px;
+    border-radius: 3px
+}
+.invalidSelect{
+    border: 1px solid red;
+}

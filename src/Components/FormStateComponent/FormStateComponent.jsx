@@ -17,15 +17,16 @@ import {
 } from "../../Constants/FormConstants";
 import { useFormContext } from "../../Utils/CustomHooks";
 export const Identity = () => {
-  const { getFormState, setFormInputValue } = useFormContext();
+  const { getFormState, setFormInputValue, getFormValidity } = useFormContext();
   const formState = getFormState();
+  const formValidity = getFormValidity();
   return (
     <div className={'stepContainer'}>
       <TextInput
         label={"Name"}
         inputValue={formState[NAME_KEY]}
         onChange={(value) => setFormInputValue(NAME_KEY, value)}
-        isInvalid={false}
+        isInvalid={formValidity[NAME_KEY] === false}
         disabled={false}
         placeholder={"Add Your Name"}
       />
@@ -33,7 +34,7 @@ export const Identity = () => {
         label={"Email"}
         inputValue={formState[EMAIL_KEY]}
         onChange={(value) => setFormInputValue(EMAIL_KEY, value)}
-        isInvalid={false}
+        isInvalid={formValidity[EMAIL_KEY] === false}
         disabled={false}
         placeholder={"Add Your Email"}
         type={"email"}
@@ -43,25 +44,29 @@ export const Identity = () => {
 };
 
 export const Description = () => {
-  const { getFormState, setFormInputValue } = useFormContext();
+  const { getFormState, setFormInputValue, getFormValidity } = useFormContext();
   const formState = getFormState();
+  const formValidity = getFormValidity();
   const ageOptionArray = getAgeOptionList();
-
+  console.log(formValidity[AGE_KEY] ,'<-----------------formValidity[AGE_KEY] === false')
+  console.log(formValidity[GENDER_KEY] ,'<-----------------formValidity[GENDER_KEY] === false')
   return (
     <div className={'stepContainer'}>
       <SelectInput
-        label={"Birth Year"}
+        label={"Age"}
         inputValue={formState[AGE_KEY]}
         onChange={(value) => setFormInputValue(AGE_KEY, value)}
-        isInvalid={false}
         disabled={false}
         optionArray={ageOptionArray}
         placeholder={"Select Your Age"}
+        isInvalid={formValidity[AGE_KEY] === false}
       />
       <RadioInput
+        label={'Gender'}
         inputValue={formState[GENDER_KEY]}
         radioArray={radioOptionsArray}
         onChange={(value) => setFormInputValue(GENDER_KEY, value)}
+        isInvalid={formValidity[GENDER_KEY] === false}
       />
     </div>
   );
@@ -71,16 +76,15 @@ export const Favourites = () => {
   const { getFormState, setFormInputValue, getFormValidity } = useFormContext();
   const formState = getFormState();
   const formValidity = getFormValidity();
-  console.log(JSON.stringify(formValidity),'<-----------------formValidity')
-  console.log('hgdfsjakl',formValidity[BOOK_KEY])
   return (
     <div className={'stepContainer'}>
       <MultiSelect
       label={'Colors'}
         optionArray={COLOR_ARRAY}
-        placeholder={"SELECT MULTIPLE COLORS"}
+        placeholder={"Select Multiple Colors"}
         setValue={(value) => setFormInputValue(COLOR_KEY, value)}
         defaultValue={formState[COLOR_KEY]}
+        isInvalid={formValidity[COLOR_KEY] === false}
       />
       <TextInput
         label={"Favourite Book"}
@@ -98,7 +102,7 @@ export  const Summary = () => {
   const formState = getFormState();
   return (
     <div className={'stepContainer summaryContainer'}>
-      <div className={'titleContainer'}>Identity</div>
+      <div className={'titleContainer'}><h3>Identity</h3></div>
       <div className={'summaryContent'}>
         <div className={'infoLine'}>
           <div className={'infoName'}>Name:</div>
@@ -109,7 +113,7 @@ export  const Summary = () => {
           <div className={'infoValue'}>{formState[EMAIL_KEY]}</div>
         </div>
       </div>
-      <div className={'titleContainer'}>Description</div>
+      <div className={'titleContainer'}><h3>Description</h3></div>
       <div className={'summaryContent'}>
         <div className={'infoLine'}>
           <div className={'infoName'}>Age:</div>
@@ -120,7 +124,7 @@ export  const Summary = () => {
           <div className={'infoValue'}>{formState[GENDER_KEY]}</div>
         </div>
       </div>
-      <div className={'titleContainer'}>Favourites</div>
+      <div className={'titleContainer'}><h3>Favourites</h3></div>
       <div className={'summaryContent'}>
         <div className={'infoLine'}>
           <div className={'infoName'}>Color:</div>

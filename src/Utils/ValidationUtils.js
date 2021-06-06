@@ -17,7 +17,7 @@ export function validateGender(value) {
     return false
 }
 export function validateAge(value) {
-    if(typeof (value) === 'number'){
+    if(!Number.isNaN(Number(value))){
         return true;
     }
     return false
@@ -28,9 +28,11 @@ export function returnIfValid(validationObject, data) {
         const vfn = validationObject[key];
         Validity[key] = vfn(data[key]);
     })
-    const allOrNothing = Object.keys(validationObject).every((k) => {
-        return validationObject[k]
+    console.log(Validity,'<-----------------Validity')
+    const allOrNothing = Object.keys(Validity).every((k) => {
+        return Validity[k] === true
     })
+    console.log(allOrNothing,'<-----------------allOrNothing')
     if(allOrNothing){
         return true;
     }

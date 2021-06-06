@@ -7,7 +7,7 @@ function ModalHOC(Component) {
     if (visible) {
       return (
         <>
-        <div className={"blankvoid"}>
+        <div className={"blankvoid"} onClick={() => setvisible(false)}>
         </div>
            <div className={"modal"}>
            <div className={"mainComponent"}>

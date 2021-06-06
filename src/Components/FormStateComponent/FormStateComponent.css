@@ -21,6 +21,7 @@
     align-items: center;
 }
 .infoValue{
+    margin: 2%;
     width: 70%;
     display: flex;
     flex-direction: row;
@@ -32,4 +33,5 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+    font-weight: bold;
 }

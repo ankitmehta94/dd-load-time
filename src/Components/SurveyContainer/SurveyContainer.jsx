@@ -42,18 +42,16 @@ const SurveyContainer = ({ closeModal }) => {
 };
 const RightButton = ({ setformPart, index }) => {
   const { getFormState, setFormInputValid } = useFormContext();
-  console.log(index,'<-----------------index')
   const nextState = () => {
     const formState = getFormState();
     const validity = returnIfValid(formStates[index-1].validation,formState)
-    console.log(validity,'<-----------------validity')
+    console.log(formState,'<-----------------formState')
     if(validity === true){
       LocalStorage.set("surveyData", {formState,index});
       setformPart(formStates[index]);
     }else{
-      Object.keys(validity).forEach((k,i) => {
-        setFormInputValid(k, validity[k])
-      })
+      console.log(validity,'<-----------------validity')
+      setFormInputValid(validity)
     }
     
   };
@@ -65,6 +63,9 @@ const RightButton = ({ setformPart, index }) => {
 };
 const LeftButton = ({ setformPart, index }) => {
   const prevState = () => {
+    const surveyData = LocalStorage.get("surveyData");
+    surveyData.index = index - 2
+    LocalStorage.set("surveyData", surveyData);
     setformPart(formStates[index - 2]);
   };
   if (index === 1) {
