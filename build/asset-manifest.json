@@ -1,23 +1,15 @@
 {
   "files": {
-    "main.css": "/static/ys-survey.chunk.css",
-    "main.js": "/static/js/main.b4a69ced.chunk.js",
-    "main.js.map": "/static/js/main.b4a69ced.chunk.js.map",
-    "runtime-main.js": "/static/js/ys-survery-final.js",
-    "runtime-main.js.map": "/static/js/ys-survery-final.js.map",
-    "static/js/2.c0de0ee2.chunk.js": "/static/js/2.c0de0ee2.chunk.js",
-    "static/js/2.c0de0ee2.chunk.js.map": "/static/js/2.c0de0ee2.chunk.js.map",
-    "static/js/3.31bdaa03.chunk.js": "/static/js/3.31bdaa03.chunk.js",
-    "static/js/3.31bdaa03.chunk.js.map": "/static/js/3.31bdaa03.chunk.js.map",
+    "main.css": "/static/css/ys-survey.css",
+    "main.js": "/static/js/ys-survey.js",
+    "main.js.map": "/static/js/ys-survey.js.map",
+    "static/js/1.ys-survey.js": "/static/js/1.ys-survey.js",
+    "static/js/1.ys-survey.js.map": "/static/js/1.ys-survey.js.map",
     "index.html": "/index.html",
-    "static/js/2.c0de0ee2.chunk.js.LICENSE.txt": "/static/js/2.c0de0ee2.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/static/media/logo.6ce24c58.svg",
-    "static/ys-survey.chunk.css.map": "/static/ys-survey.chunk.css.map"
+    "static/css/ys-survey.css.map": "/static/css/ys-survey.css.map"
   },
   "entrypoints": [
-    "static/js/ys-survery-final.js",
-    "static/js/2.c0de0ee2.chunk.js",
-    "static/ys-survey.chunk.css",
-    "static/js/main.b4a69ced.chunk.js"
+    "static/css/ys-survey.css",
+    "static/js/ys-survey.js"
   ]
 }

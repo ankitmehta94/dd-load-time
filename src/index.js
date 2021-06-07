@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import Modal from './Components/Modal/Modal'
 import reportWebVitals from './reportWebVitals';
 
 
 window.addEventListener('load', (event) => {
   const styleLink = document.createElement('link');
-  styleLink.setAttribute('href','https://raw.githubusercontent.com/ankitmehta94/ys-survey/master/build/static/ys-survey.chunk.css')
+  styleLink.setAttribute('href','https://raw.githubusercontent.com/ankitmehta94/ys-survey/master/build/static/ys-survey.css')
   const element = document.createElement('div');
   element.setAttribute('id','ys-survey');
   const head = document.getElementsByTagName('head')[0];

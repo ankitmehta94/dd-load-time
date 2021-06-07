@@ -86,7 +86,7 @@ const searchStringArray = (array, str) => {
   const newArray = [];
   for (let index = 0; index < array.length; index++) {
     const element = array[index];
-    if (element.includes(str)) {
+    if (element.toUpperCase().includes(str.toUpperCase())) {
       newArray.push(element);
     }
   }

@@ -17,7 +17,7 @@ export function validateGender(value) {
     return false
 }
 export function validateAge(value) {
-    if(!Number.isNaN(Number(value))){
+    if(value !== "" && !Number.isNaN(Number(value))){
         return true;
     }
     return false

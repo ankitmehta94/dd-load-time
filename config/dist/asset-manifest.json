@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/ys-survey.chunk.css",
+    "main.js": "/0.ys-survey.bundle.js",
+    "main.js.map": "/0.ys-survey.bundle.js.map",
+    "runtime-main.js": "/ys-survey.bundle.js",
+    "runtime-main.js.map": "/ys-survey.bundle.js.map",
+    "2.ys-survey.bundle.js": "/2.ys-survey.bundle.js",
+    "2.ys-survey.bundle.js.map": "/2.ys-survey.bundle.js.map",
+    "3.ys-survey.bundle.js": "/3.ys-survey.bundle.js",
+    "3.ys-survey.bundle.js.map": "/3.ys-survey.bundle.js.map",
+    "2.ys-survey.bundle.js.LICENSE.txt": "/2.ys-survey.bundle.js.LICENSE.txt",
+    "index.html": "/index.html",
+    "static/ys-survey.chunk.css.map": "/static/ys-survey.chunk.css.map"
+  },
+  "entrypoints": [
+    "ys-survey.bundle.js",
+    "2.ys-survey.bundle.js",
+    "static/ys-survey.chunk.css",
+    "0.ys-survey.bundle.js"
+  ]
+}
