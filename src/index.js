@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 
 window.addEventListener('load', (event) => {
   const styleLink = document.createElement('link');
-  styleLink.setAttribute('href','https://raw.githubusercontent.com/ankitmehta94/ys-survey/master/build/static/ys-survey.css')
+  styleLink.setAttribute('href','https://s3-us-west-2.amazonaws.com/ys.survey/ys-survey.css')
   const element = document.createElement('div');
   element.setAttribute('id','ys-survey');
   const head = document.getElementsByTagName('head')[0];
