@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useFormContext, FormProvider } from "../../Utils/CustomHooks";
 import "./SurveyContainer.css";
 import {Identity, Favourites, Description, Summary} from "../FormStateComponent/FormStateComponent";
-import { FORM_INITIAL_STATE,  NAME_KEY,
+import {  NAME_KEY,
   EMAIL_KEY,
   GENDER_KEY,
   COLOR_KEY,
@@ -21,13 +21,12 @@ const SURVEY_FORM_CONFIG = [
   { title: "Summary", index: 4, validation:{NAME_KEY: () => true, EMAIL_KEY: () => true} , component: Summary },
 ];
 // Getting data from localStorage, if data isn't present then we have default values
-const {formState = FORM_INITIAL_STATE, index = 0} = LocalStorage.get('surveyData') || {}
 
 const formStateLength = SURVEY_FORM_CONFIG.length;
 
 //Main Form Component which is wrapped by a FormContextProvider 
 //which allows using a single state for all values of the form
-const SurveyContainer = ({ closeModal }) => {
+const SurveyContainer = ({ closeModal, formState, index }) => {
   // State to keep stack of which Step to display
   const [formPart, setformPart] = useState(SURVEY_FORM_CONFIG[index]);
   const FormComponent = formPart.component
@@ -68,10 +67,14 @@ const RightButton = ({ setformPart, index, closeModal }) => {
     
   };
   // change the text on Submit button and close modal after 3 seconds. 
-  // It does not save the submitted state because that makes testing this code a longer process
   const onSubmit = () => {
     setsubmitText('Submitting...')
+
     setTimeout(() => {
+      const surveyData = LocalStorage.get("surveyData");
+      surveyData.submitted = true
+      LocalStorage.set("surveyData", surveyData);
+      setformPart(SURVEY_FORM_CONFIG[index - 2]);
       closeModal();
     }, 3000);
   }
