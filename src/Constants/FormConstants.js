@@ -30,6 +30,7 @@ export const getAgeOptionList = () => {
 }
 
 export const radioOptionsArray = [{name:'Male',value:'male'},{name:'Female',value:'female'}]
+export const summaryViewOptionsArray = [{name:'Table View',value:'table'},{name:'Form View',value:'form'}]
 export const COLOR_ARRAY = [
     "Blue ",
     "Green",

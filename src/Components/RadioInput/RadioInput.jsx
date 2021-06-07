@@ -11,7 +11,7 @@ export const Input = ({
 }) => {
   const radioElementArray = radioArray.map((rad, i) => {
     return (
-      <label className={"radioLableStyle"}>
+      <label key={`rad-${i}`} className={"radioLableStyle"}>
         {rad.name}
         <input
           type={"radio"}

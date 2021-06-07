@@ -12,9 +12,11 @@ import {
   BOOK_KEY,
   getAgeOptionList,
   radioOptionsArray,
+  summaryViewOptionsArray,
   COLOR_ARRAY,
 } from "../../Constants/FormConstants";
 import { useFormContext } from "../../Utils/CustomHooks";
+import { Fragment, useState } from "react";
 
 // All Steps are made from maintainable compoenents that can be sweitched out and carry no stateful information pertaining the survey
 
@@ -97,53 +99,56 @@ export const Favourites = () => {
     </div>
   );
 };
-// export  const Summary = () => {
-//   const { getFormState } = useFormContext();
-//   const formState = getFormState();
-//   return (
-//     <div className={'stepContainer summaryContainer'}>
-//       <div className={'titleContainer'}><h3>Identity</h3></div>
-//       <div className={'summaryContent'}>
-//         <div className={'infoLine'}>
-//           <div className={'infoName'}>Name:</div>
-//           <div className={'infoValue'}>{formState[NAME_KEY]}</div>
-//         </div>
-//         <div className={'infoLine'}>
-//           <div className={'infoName'}>Email:</div>
-//           <div className={'infoValue'}>{formState[EMAIL_KEY]}</div>
-//         </div>
-//       </div>
-//       <div className={'titleContainer'}><h3>Description</h3></div>
-//       <div className={'summaryContent'}>
-//         <div className={'infoLine'}>
-//           <div className={'infoName'}>Age:</div>
-//           <div className={'infoValue'}>{formState[AGE_KEY]}</div>
-//         </div>
-//         <div className={'infoLine'}>
-//           <div className={'infoName'}>Gender:</div>
-//           <div className={'infoValue'}>{formState[GENDER_KEY]}</div>
-//         </div>
-//       </div>
-//       <div className={'titleContainer'}><h3>Favourites</h3></div>
-//       <div className={'summaryContent'}>
-//         <div className={'infoLine'}>
-//           <div className={'infoName'}>Color:</div>
-//           <div className={'infoValue'}>{formState[COLOR_KEY]?formState[COLOR_KEY].join(', '):null}</div>
-//         </div>
-//         <div className={'infoLine'}>
-//           <div className={'infoName'}>Favourite Book:</div>
-//           <div className={'infoValue'}>{formState[BOOK_KEY]}</div>
-//         </div>
-//       </div>
-//     </div>
-//   )
-// };
 export  const Summary = () => {
+  const [summaryView, setsummaryView] = useState('form');
   const { getFormState } = useFormContext();
   const formState = getFormState();
   return (
     <div className={'stepContainer summaryContainer'}>
-      <table class={'tableClass'}>
+      <RadioInput
+        label={'Choose how you see the summary'}
+        inputValue={summaryView}
+        radioArray={summaryViewOptionsArray}
+        onChange={(e) => setsummaryView(e)}
+      />
+      {summaryView==='form'?(
+    <Fragment>
+      <div className={'titleContainer'}><h3>Identity</h3></div>
+      <div className={'summaryContent'}>
+        <div className={'infoLine'}>
+          <div className={'infoName'}>Name:</div>
+          <div className={'infoValue'}>{formState[NAME_KEY]}</div>
+        </div>
+        <div className={'infoLine'}>
+          <div className={'infoName'}>Email:</div>
+          <div className={'infoValue'}>{formState[EMAIL_KEY]}</div>
+        </div>
+      </div>
+      <div className={'titleContainer'}><h3>Description</h3></div>
+      <div className={'summaryContent'}>
+        <div className={'infoLine'}>
+          <div className={'infoName'}>Age:</div>
+          <div className={'infoValue'}>{formState[AGE_KEY]}</div>
+        </div>
+        <div className={'infoLine'}>
+          <div className={'infoName'}>Gender:</div>
+          <div className={'infoValue'}>{formState[GENDER_KEY]}</div>
+        </div>
+      </div>
+      <div className={'titleContainer'}><h3>Favourites</h3></div>
+      <div className={'summaryContent'}>
+        <div className={'infoLine'}>
+          <div className={'infoName'}>Color:</div>
+          <div className={'infoValue'}>{formState[COLOR_KEY]?formState[COLOR_KEY].join(', '):null}</div>
+        </div>
+        <div className={'infoLine'}>
+          <div className={'infoName'}>Favourite Book:</div>
+          <div className={'infoValue'}>{formState[BOOK_KEY]}</div>
+        </div>
+      </div>
+    </Fragment>
+  ):(<table className={'tableClass'}>
+    <thead>
         <tr>
           <th className={'tableCells'}>Name</th>
           <th className={'tableCells'}>Email</th>
@@ -151,6 +156,8 @@ export  const Summary = () => {
           <th className={'tableCells'}>Colors</th>
           <th className={'tableCells'}>Favourite Book</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
           <td className={'tableCells'} >{formState[NAME_KEY]}</td>
           <td className={'tableCells'} >{formState[EMAIL_KEY]}</td>
@@ -158,7 +165,8 @@ export  const Summary = () => {
           <td className={'tableCells'} >{formState[COLOR_KEY]?formState[COLOR_KEY].join(', '):null}</td>
           <td className={'tableCells'} >{formState[BOOK_KEY]}</td>
         </tr>
-      </table>
+        </tbody>
+      </table>)}
     </div>
   )
 };
