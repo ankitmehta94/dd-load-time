@@ -1,10 +1,9 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import { FORM_INITIAL_VALIDATION } from "../Constants/FormConstants";
 
 const FormContext  = createContext({getFormState: () => {}, setFormInputValue: () => {}});
-export const FormProvider = ({initialState,children}) => {
+export const FormProvider = ({initialState,initialValidity,children}) => {
     const [state, setState] = useState(initialState);
-    const [valid, setValid] = useState(FORM_INITIAL_VALIDATION);
+    const [valid, setValid] = useState(initialValidity);
     const setFormInputValid = (validityObject) => {
         console.log(validityObject,'<-----------------validityObject')
         setValid({...valid,...validityObject})

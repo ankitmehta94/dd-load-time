@@ -7,7 +7,8 @@ import { FORM_INITIAL_STATE,  NAME_KEY,
   GENDER_KEY,
   COLOR_KEY,
   AGE_KEY,
-  BOOK_KEY, } from "../../Constants/FormConstants";
+  BOOK_KEY,
+FORM_INITIAL_VALIDATION } from "../../Constants/FormConstants";
 import  {validateColors,validateBooks,validateGender, validateAge, returnIfValid } from "../../Utils/ValidationUtils";
 import LocalStorage from "../../Utils/LocalStorage";
 
@@ -31,7 +32,7 @@ const SurveyContainer = ({ closeModal }) => {
   const [formPart, setformPart] = useState(SURVEY_FORM_CONFIG[index]);
   const FormComponent = formPart.component
   return (
-    <FormProvider initialState={formState}>
+    <FormProvider initialState={formState} initialValidity={FORM_INITIAL_VALIDATION}>
       <div className={"mainBody"}>
         <div className={"formHeader"}>
           <h2>
