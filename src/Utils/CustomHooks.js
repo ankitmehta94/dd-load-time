@@ -1,19 +1,6 @@
-import React, { useReducer, createContext, useState, useContext, useEffect } from "react";
-import { FORM_INITIAL_STATE, FORM_INITIAL_VALIDATION } from "../Constants/FormConstants";
-import formReducer from '../Reducer/FormReducer';
-import LocalStorage from "./LocalStorage";
+import React, { createContext, useState, useContext, useEffect } from "react";
+import { FORM_INITIAL_VALIDATION } from "../Constants/FormConstants";
 
-export function useFormReducer(){
-    const [state, dispatch] = useReducer(formReducer, FORM_INITIAL_STATE);
-    return [state, dispatch]
-}
-export function useInputChange (keyName){
-    const [state, dispatch] = useFormReducer();
-    function saveValue(value) {
-        dispatch({type: 'UPDATE_INPUT', payload: {[keyName]:value}})
-    }
-    return [state[keyName],saveValue]
-}
 const FormContext  = createContext({getFormState: () => {}, setFormInputValue: () => {}});
 export const FormProvider = ({initialState,children}) => {
     const [state, setState] = useState(initialState);

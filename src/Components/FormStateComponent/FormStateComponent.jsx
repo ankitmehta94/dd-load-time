@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./FormStateComponent.css";
 import TextInput from "../TextInput/TextInput";
 import SelectInput from "../SelectInput/SelectInput";
@@ -16,6 +15,9 @@ import {
   COLOR_ARRAY,
 } from "../../Constants/FormConstants";
 import { useFormContext } from "../../Utils/CustomHooks";
+
+// All Steps are made from maintainable compoenents that can be sweitched out and carry no stateful information pertaining the survey
+
 export const Identity = () => {
   const { getFormState, setFormInputValue, getFormValidity } = useFormContext();
   const formState = getFormState();
@@ -48,8 +50,6 @@ export const Description = () => {
   const formState = getFormState();
   const formValidity = getFormValidity();
   const ageOptionArray = getAgeOptionList();
-  console.log(formValidity[AGE_KEY] ,'<-----------------formValidity[AGE_KEY] === false')
-  console.log(formValidity[GENDER_KEY] ,'<-----------------formValidity[GENDER_KEY] === false')
   return (
     <div className={'stepContainer'}>
       <SelectInput

@@ -10,16 +10,25 @@ import { FORM_INITIAL_STATE,  NAME_KEY,
   BOOK_KEY, } from "../../Constants/FormConstants";
 import  {validateColors,validateBooks,validateGender, validateAge, returnIfValid } from "../../Utils/ValidationUtils";
 import LocalStorage from "../../Utils/LocalStorage";
-const formStates = [
+
+// Form Config which can be used to create different kinds of forms
+// each step of the form has its own component
+const SURVEY_FORM_CONFIG = [
   { title: "Identity", index: 1, validation:{[NAME_KEY]: () => true, [EMAIL_KEY]: () => true}, component: Identity },
   { title: "Details", index: 2, validation:{[AGE_KEY]: validateAge, [GENDER_KEY]: validateGender}, component: Description },
   { title: "Favorites", index: 3, validation:{[COLOR_KEY]: validateColors, [BOOK_KEY]: validateBooks}, component: Favourites},
   { title: "Summary", index: 4, validation:{NAME_KEY: () => true, EMAIL_KEY: () => true} , component: Summary },
 ];
+// Getting data from localStorage, if data isn't present then we have default values
 const {formState = FORM_INITIAL_STATE, index = 0} = LocalStorage.get('surveyData') || {}
-const formStateLength = formStates.length;
+
+const formStateLength = SURVEY_FORM_CONFIG.length;
+
+//Main Form Component which is wrapped by a FormContextProvider 
+//which allows using a single state for all values of the form
 const SurveyContainer = ({ closeModal }) => {
-  const [formPart, setformPart] = useState(formStates[index]);
+  // State to keep stack of which Step to display
+  const [formPart, setformPart] = useState(SURVEY_FORM_CONFIG[index]);
   const FormComponent = formPart.component
   return (
     <FormProvider initialState={formState}>
@@ -33,40 +42,51 @@ const SurveyContainer = ({ closeModal }) => {
           <FormComponent />
         </div>
         <div className={"formFooter"}>
-          <LeftButton index={formPart.index} setformPart={setformPart} />
-          <RightButton index={formPart.index} setformPart={setformPart} />
+          <LeftButton index={formPart.index} setformPart={setformPart}  />
+          <RightButton index={formPart.index} setformPart={setformPart} closeModal={closeModal} />
         </div>
       </div>
     </FormProvider>
   );
 };
-const RightButton = ({ setformPart, index }) => {
+
+
+const RightButton = ({ setformPart, index, closeModal }) => {
+  const [submitText, setsubmitText] = useState('Submit');
   const { getFormState, setFormInputValid } = useFormContext();
+  //save values in local storage and move to next step
   const nextState = () => {
     const formState = getFormState();
-    const validity = returnIfValid(formStates[index-1].validation,formState)
-    console.log(formState,'<-----------------formState')
+    const validity = returnIfValid(SURVEY_FORM_CONFIG[index-1].validation,formState)
     if(validity === true){
       LocalStorage.set("surveyData", {formState,index});
-      setformPart(formStates[index]);
+      setformPart(SURVEY_FORM_CONFIG[index]);
     }else{
-      console.log(validity,'<-----------------validity')
       setFormInputValid(validity)
     }
     
   };
+  // change the text on Submit button and close modal after 3 seconds. 
+  // It does not save the submitted state because that makes testing this code a longer process
+  const onSubmit = () => {
+    setsubmitText('Submitting...')
+    setTimeout(() => {
+      closeModal();
+    }, 3000);
+  }
   if (index === formStateLength) {
-    return <button className={'ctaButton'} onClick={() => console.log("Submitted")}>Submit</button>;
+    return <button className={'ctaButton'} onClick={onSubmit}>{submitText}</button>;
   } else {
     return <button className={'ctaButton'} onClick={nextState}>Next</button>;
   }
 };
 const LeftButton = ({ setformPart, index }) => {
+  // move and save previous step 
   const prevState = () => {
     const surveyData = LocalStorage.get("surveyData");
     surveyData.index = index - 2
     LocalStorage.set("surveyData", surveyData);
-    setformPart(formStates[index - 2]);
+    setformPart(SURVEY_FORM_CONFIG[index - 2]);
   };
   if (index === 1) {
     return <div></div>;

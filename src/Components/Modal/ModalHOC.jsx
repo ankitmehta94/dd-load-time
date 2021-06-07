@@ -1,6 +1,6 @@
 import "./Modal.css";
 import { useState } from "react";
-
+//Higher Order Component to create multiple modal using the same functionality
 function ModalHOC(Component) {
   return function Modal() {
     const [visible, setvisible] = useState(true);
