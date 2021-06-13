@@ -6,12 +6,21 @@ import style from "./AlertContainer.css";
 import {
   BELOW_CONDITION_KEY,
   ABOVE_CONDITION_KEY,
+  THRESHOLD_DEFAULT,
+  SAMPLING_RATE,
+  ALERT_WINDOW_DEFAULT,
 } from "../../Constants/Constants";
 import debounce from "../../Utils/Debounce";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStopwatch, faArrowDown, faClock, faLevelUpAlt } from '@fortawesome/free-solid-svg-icons'
+import { faStopwatch, faClock, faLevelUpAlt } from '@fortawesome/free-solid-svg-icons'
 
-
+export const AlertContainerDefaultProps = {
+chartData: [],
+  className : '',
+  threshold : THRESHOLD_DEFAULT,
+  timeWindow: ALERT_WINDOW_DEFAULT,
+  samplingRate: SAMPLING_RATE,
+}
 const AlertTableCard = CardHOC(AlertTable);
 export default function AlertContainer({
   chartData,

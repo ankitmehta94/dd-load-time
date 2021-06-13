@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Default State of AlertContainer 1`] = `
+<div
+  className=""
+>
+  <div>
+    <div>
+      <table>
+        <tr>
+          <th>
+            Alert Type
+          </th>
+          <th>
+            Alert Window
+          </th>
+          <th>
+            Alert Time
+          </th>
+          <th>
+            Threshold
+          </th>
+        </tr>
+        <tbody />
+      </table>
+    </div>
+  </div>
+  <div>
+    <div>
+      <table>
+        <tr>
+          <th>
+            Alert Type
+          </th>
+          <th>
+            Alert Window
+          </th>
+          <th>
+            Alert Time
+          </th>
+          <th>
+            Threshold
+          </th>
+        </tr>
+        <tbody />
+      </table>
+    </div>
+  </div>
+</div>
+`;
