@@ -1,0 +1,25 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 8px 8px rgb(0 0 0 / 7%);
+}
+.control-panel{
+width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+}
+.logoContainer{
+   
+    width: 100%;
+    height: 100%;
+    font-size: 40px;
+
+}
+.logo{
+    padding: 1%;
+    color: #632CA6;
+}
