@@ -16,10 +16,9 @@ import {
   TIME_RANGE_STEP,
   TIME_RANGE_OPTIONS,
 } from "../../constants/Constants";
-import RadioButtons from "../../SurveyComponents/RadioButtons/RadioButtons";
 import style from "./Charts.css";
 import Range from "../material_range/Range";
-import { Grid, CardHeader, CircularProgress } from "@material-ui/core";
+import {CircularProgress } from "@material-ui/core";
 import InfoIcon from "../dumb_components/info_icon/InfoIcon";
 
 function Chart({ chartData = [{}], threshold, samplingRate, timeWindow }) {

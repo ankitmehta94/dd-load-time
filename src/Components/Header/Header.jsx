@@ -1,6 +1,5 @@
 import  Range  from "../material_range/Range";
 import style from "./Header.css";
-import Logo from "../../Assests/logo.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDog } from '@fortawesome/free-solid-svg-icons'
 import { Grid } from "@material-ui/core";

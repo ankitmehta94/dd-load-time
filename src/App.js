@@ -3,12 +3,12 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Header from "./Components/Header/Header";
+import Header from "./components/header/Header";
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Content from "./Components/Content/Content";
+import Content from "./components/content/Content";
 import style from "./App.css";
-import { ALERT_WINDOW_DEFAULT, THRESHOLD_DEFAULT } from './Constants/Constants';
+import { ALERT_WINDOW_DEFAULT, THRESHOLD_DEFAULT } from './constants/Constants';
 
 
 const useStyles = makeStyles((theme) => ({
