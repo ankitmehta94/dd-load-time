@@ -11,5 +11,4 @@ export default  function Range({setvalue, value, label, min, max, step, disabled
     </div>
     </div>)
 }
-//TODO: Slider from Material UI
-//TODO: Text should be black
+

@@ -4,22 +4,36 @@
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 0 8px 8px rgb(0 0 0 / 7%);
+    height: 100%;
 }
 .control-panel{
-width: 50%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
 }
 .logoContainer{
-   
+    margin-left: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     width: 100%;
     height: 100%;
     font-size: 40px;
+  
 
 }
 .logo{
+      border: 2px solid #632CA6;
     padding: 1%;
     color: #632CA6;
+}
+.logoText{
+    border: 2px solid #632CA6;
+    border-top: 0px;
+   
+    color: #632CA6;
+    font-size: 16px;
 }

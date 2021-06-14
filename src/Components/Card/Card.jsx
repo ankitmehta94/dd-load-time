@@ -1,11 +1,18 @@
-import style from "./Card.css";
-
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+const useStyles = makeStyles({
+    root: {
+      minWidth: 275,
+    },
+  });
 export default function CardHOC(Component) {
-    return function ({...props}) {
+    // const classes = useStyles();
+    return function CardContainer({...props}) {
+    
         return (
-            <div className={style['card']}>
+            <Card  style={{height:'100%'}}>
                 <Component {...props}/>
-            </div>
+            </Card>
         )
     } 
 }

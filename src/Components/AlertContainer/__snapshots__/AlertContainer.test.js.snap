@@ -5,45 +5,217 @@ exports[`Default State of AlertContainer 1`] = `
   className=""
 >
   <div>
-    <div>
-      <table>
-        <tr>
-          <th>
-            Alert Type
-          </th>
-          <th>
-            Alert Window
-          </th>
-          <th>
-            Alert Time
-          </th>
-          <th>
-            Threshold
-          </th>
-        </tr>
-        <tbody />
-      </table>
+    <div
+      className="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded"
+      style={
+        Object {
+          "height": "100%",
+        }
+      }
+    >
+      <div
+        className="MuiTableContainer-root makeStyles-container-2"
+      >
+        <div
+          className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-flex-end MuiGrid-grid-xs-12"
+        >
+          <div
+            aria-describedby={null}
+            className=""
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOver={[Function]}
+            onTouchEnd={[Function]}
+            onTouchStart={[Function]}
+            title="This shows the list of alerts made in the past and which alerts are currently on going"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-info-circle fa-w-16 fa-lg "
+              data-icon="info-circle"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </div>
+        </div>
+        <table
+          aria-label="alert table"
+          className="MuiTable-root MuiTable-stickyHeader"
+          role={null}
+        >
+          <thead
+            className="MuiTableHead-root"
+            role={null}
+          >
+            <tr
+              className="MuiTableRow-root MuiTableRow-head"
+              role={null}
+            >
+              <th
+                aria-sort={null}
+                className="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
+                scope="col"
+              >
+                Status
+              </th>
+              <th
+                aria-sort={null}
+                className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-stickyHeader"
+                scope="col"
+              >
+                Type
+              </th>
+              <th
+                aria-sort={null}
+                className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-stickyHeader"
+                scope="col"
+              >
+                Time
+              </th>
+              <th
+                aria-sort={null}
+                className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-stickyHeader"
+                scope="col"
+              >
+                Threshold
+              </th>
+              <th
+                aria-sort={null}
+                className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-stickyHeader"
+                scope="col"
+              >
+                Alert Window
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            className="MuiTableBody-root"
+            role={null}
+          />
+        </table>
+      </div>
     </div>
   </div>
   <div>
-    <div>
-      <table>
-        <tr>
-          <th>
-            Alert Type
-          </th>
-          <th>
-            Alert Window
-          </th>
-          <th>
-            Alert Time
-          </th>
-          <th>
-            Threshold
-          </th>
-        </tr>
-        <tbody />
-      </table>
+    <div
+      className="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded"
+      style={
+        Object {
+          "height": "100%",
+        }
+      }
+    >
+      <div
+        className="MuiTableContainer-root makeStyles-container-2"
+      >
+        <div
+          className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-flex-end MuiGrid-grid-xs-12"
+        >
+          <div
+            aria-describedby={null}
+            className=""
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOver={[Function]}
+            onTouchEnd={[Function]}
+            onTouchStart={[Function]}
+            title="This shows the list of alerts made in the past and which alerts are currently on going"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-info-circle fa-w-16 fa-lg "
+              data-icon="info-circle"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </div>
+        </div>
+        <table
+          aria-label="alert table"
+          className="MuiTable-root MuiTable-stickyHeader"
+          role={null}
+        >
+          <thead
+            className="MuiTableHead-root"
+            role={null}
+          >
+            <tr
+              className="MuiTableRow-root MuiTableRow-head"
+              role={null}
+            >
+              <th
+                aria-sort={null}
+                className="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader"
+                scope="col"
+              >
+                Status
+              </th>
+              <th
+                aria-sort={null}
+                className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-stickyHeader"
+                scope="col"
+              >
+                Type
+              </th>
+              <th
+                aria-sort={null}
+                className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-stickyHeader"
+                scope="col"
+              >
+                Time
+              </th>
+              <th
+                aria-sort={null}
+                className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-stickyHeader"
+                scope="col"
+              >
+                Threshold
+              </th>
+              <th
+                aria-sort={null}
+                className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter MuiTableCell-stickyHeader"
+                scope="col"
+              >
+                Alert Window
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            className="MuiTableBody-root"
+            role={null}
+          />
+        </table>
+      </div>
     </div>
   </div>
 </div>

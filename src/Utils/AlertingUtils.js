@@ -1,13 +1,13 @@
 import { ABOVE_CONDITION_KEY, BELOW_CONDITION_KEY } from "../Constants/Constants";
 
-const eventDict = {
+export const eventDict = {
   [ABOVE_CONDITION_KEY]: { conditionFunction: (t) => (val, index) => {
-    console.log(val.y , t,'<-----------------val.y < t',ABOVE_CONDITION_KEY)
-    return val.y > t
+    console.log(val.loadTime , t,'<-----------------val.loadTime < t',ABOVE_CONDITION_KEY)
+    return val.loadTime > t
   } },
   [BELOW_CONDITION_KEY]: { conditionFunction: (t) => (val, index) => {
-    console.log(val.y , t,'<-----------------val.y > t',BELOW_CONDITION_KEY)
-    return val.y < t
+    console.log(val.loadTime , t,'<-----------------val.loadTime > t',BELOW_CONDITION_KEY)
+    return val.loadTime < t
   } },
 };
 
@@ -27,4 +27,20 @@ export function checkIfAlertConditionIsTrue(
   const condFunc = eventDict[conditionType].conditionFunction(threshold)
   console.log(condFunc, threshold)
   return checkArray.every(condFunc);
+}
+
+export function getNextAlertType(alertData) {
+  const alertLen = alertData.length;
+  const { alert = ABOVE_CONDITION_KEY } = alertData[alertLen - 1] || {};
+  const newAlert =
+    alert === ABOVE_CONDITION_KEY ? BELOW_CONDITION_KEY : ABOVE_CONDITION_KEY;
+  return newAlert
+}
+export function createAlertObject(newAlert,threshold, timeWindow){
+  return {
+    alert: newAlert,
+    time: new Date().getTime(),
+    threshold: threshold,
+    timeWindow:timeWindow
+  }
 }

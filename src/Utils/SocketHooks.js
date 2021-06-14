@@ -1,25 +1,23 @@
 import { useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
-//TODO: convert parameters to object and keep them camelcase
-export function useSocketHook(ENDPOINT, MESSAGE_KEY,STORAGE_LIMIT, SAMPLING_RATE,dataFormatter) {
+export function useSocketHook({endpoint, messageKey, storageLimit,samplingRate, dataFormatter}) {
     const [response, setResponse] = useState([]);
-    const NO_STORAGE_LIMIT = STORAGE_LIMIT === null;
+    const noStorageLimit = storageLimit === null;
     useEffect(() => {
-      const socket = socketIOClient(ENDPOINT, {query:{
-          samplingRate: SAMPLING_RATE
+      const socket = socketIOClient(endpoint, {query:{
+          samplingRate
       }}); //TODO: Error Handling
-      socket.on(MESSAGE_KEY, (data) => {
+      socket.on(messageKey, (data) => {
         response.push(dataFormatter(data));
-        if (!NO_STORAGE_LIMIT && response.length > STORAGE_LIMIT) {
+        if (!noStorageLimit && response.length > storageLimit) {
           response.shift();
         }
-        console.log(dataFormatter,'<-----------------dataFormatter -sweet')
         setResponse(response.slice());
       });
     }, []);
     function getResponse(params) {
         return response;
     }
+    console.log(JSON.stringify(response))
     return [getResponse, setResponse]
 }
-// TODO: Material UI

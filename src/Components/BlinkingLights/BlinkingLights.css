@@ -1,0 +1,28 @@
+  @keyframes flashing_red {
+    0% {
+      box-shadow: none;
+    }
+    50% {
+      box-shadow: 0px 0px 40px #ff0606, 0px 0px 30px #ff0606,
+        0px 0px 20px #ff0606, 0px 0px 10px #ff0606,
+        0px 0px 5px #ff0606;
+    }
+    100% {
+      box-shadow: none;
+    }
+  }
+  
+  @keyframes flashing_green {
+    0% {
+      box-shadow: none;
+    }
+    50% {
+      box-shadow: 0px 0px 40px #0ae275, 0px 0px 30px #0ae275,
+        0px 0px 20px #0ae275, 0px 0px 10px #0ae275,
+        0px 0px 5px #0ae275;
+    }
+    100% {
+      box-shadow: none;
+    }
+  }
+  
