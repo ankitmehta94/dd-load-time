@@ -18,6 +18,5 @@ export function useSocketHook({endpoint, messageKey, storageLimit,samplingRate, 
     function getResponse(params) {
         return response;
     }
-    console.log(JSON.stringify(response))
     return [getResponse, setResponse]
 }

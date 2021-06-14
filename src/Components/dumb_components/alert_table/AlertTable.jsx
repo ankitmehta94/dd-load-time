@@ -5,12 +5,12 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { ABOVE_CONDITION_KEY } from '../../Constants/Constants';
-import { prettyTime, prettyTimeWindow } from '../../Utils/DateUtils';
-import BlinkingLights from "../BlinkingLights/BlinkingLights";
+import { ABOVE_CONDITION_KEY } from '../../../constants/Constants';
+import { prettyTime, prettyTimeWindow } from '../../../utils/DateUtils';
+import BlinkingLights from "../blinking_lights/BlinkingLights";
 import style from "./AlertTable.css";
 import { makeStyles } from '@material-ui/core/styles';
-import InfoIcon from '../InfoIcon/InfoIcon';
+import InfoIcon from '../info_icon/InfoIcon';
 
 
   function alertToText(alert) {
@@ -28,7 +28,6 @@ const useStyles = makeStyles({
       maxHeight: '40vh',
 },
     rowColor: props => {
-        console.log(props)
         return ({
             backgroundColor: props.alertType === ABOVE_CONDITION_KEY ? '#f7cfcf' : '#dcf5dc'
         })

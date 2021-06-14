@@ -7,11 +7,9 @@ export const FormProvider = ({initialState,initialValidity,children}) => {
     const [state, setState] = useState(initialState);
     const [valid, setValid] = useState(initialValidity);
     const setFormInputValid = (validityObject) => {
-        console.log(validityObject,'<-----------------validityObject')
         setValid({...valid,...validityObject})
     }
     useEffect(() => {
-        console.log(JSON.stringify(valid))
     },[valid])
     const setFormInputValue = (key,value ) => {
         if(!valid[key]){

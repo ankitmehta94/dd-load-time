@@ -1,4 +1,4 @@
-import  Range  from "../MaterialRange/Range";
+import  Range  from "../material_range/Range";
 import style from "./Header.css";
 import Logo from "../../Assests/logo.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

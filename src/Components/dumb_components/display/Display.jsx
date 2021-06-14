@@ -1,7 +1,7 @@
 import style from "./Display.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
-import InfoIcon from "../InfoIcon/InfoIcon";
+import InfoIcon from "../info_icon/InfoIcon";
 import { Grid } from "@material-ui/core";
 
 

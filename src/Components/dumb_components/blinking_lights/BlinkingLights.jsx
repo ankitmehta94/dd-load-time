@@ -1,6 +1,6 @@
 import style from "./BlinkingLights.css";
 import { makeStyles } from '@material-ui/core/styles';
-import { ABOVE_CONDITION_KEY } from "../../Constants/Constants";
+import { ABOVE_CONDITION_KEY } from "../../../constants/Constants";
 function calculateBackgroundColour(alertType, blinking) {
     if(!blinking){
         return alertType===ABOVE_CONDITION_KEY?'#af0606':'#026b36'
@@ -8,7 +8,6 @@ function calculateBackgroundColour(alertType, blinking) {
         return alertType===ABOVE_CONDITION_KEY?'#ff0606':'#0ae275'
     }
 }
-console.log(style)
 const useStyles = makeStyles({
     // style rule
     light: ({alertType,blinking}) => {

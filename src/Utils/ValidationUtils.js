@@ -28,11 +28,9 @@ export function returnIfValid(validationObject, data) {
         const vfn = validationObject[key];
         Validity[key] = vfn(data[key]);
     })
-    console.log(Validity,'<-----------------Validity')
     const allOrNothing = Object.keys(Validity).every((k) => {
         return Validity[k] === true
     })
-    console.log(allOrNothing,'<-----------------allOrNothing')
     if(allOrNothing){
         return true;
     }

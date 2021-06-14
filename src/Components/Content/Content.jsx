@@ -1,11 +1,11 @@
 import style from "./Content.css";
 import Chart from "../Chart/Chart";
 import Card from "../Card/Card";
-import Display from "../Display/Display";
-import { useSocketHook } from "../../Utils/SocketHooks";
+import Display from "../dumb_components/display/Display";
+import { useSocketHook } from "../../utils/SocketHooks";
 import { useEffect,useState } from "react";
 import AlertContainer from "../AlertContainer/AlertContainer";
-import { TIME_RANGE_MAX, SAMPLING_RATE, SOCKET_ENDPOINT } from '../../Constants/Constants';
+import { TIME_RANGE_MAX, SAMPLING_RATE, SOCKET_ENDPOINT } from '../../constants/Constants';
 import { Grid } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 

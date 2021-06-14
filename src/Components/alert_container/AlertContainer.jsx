@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { checkIfAlertConditionIsTrue, createAlertObject, getNextAlertType } from "../../Utils/AlertingUtils";
-import CardHOC from "../Card/Card";
+import { checkIfAlertConditionIsTrue, createAlertObject, getNextAlertType } from "../../utils/AlertingUtils";
+import CardHOC from "../card_hoc/Card";
 import style from "./AlertContainer.css";
 import {
   BELOW_CONDITION_KEY,
@@ -8,8 +8,8 @@ import {
   THRESHOLD_DEFAULT,
   SAMPLING_RATE,
   ALERT_WINDOW_DEFAULT,
-} from "../../Constants/Constants";
-import AlertTable from "../AlertTable/AlertTable";
+} from "../../constants/Constants";
+import AlertTable from "../dumb_components/alert_table/AlertTable";
 
 export const AlertContainerDefaultProps = {
 chartData: [],
@@ -35,7 +35,6 @@ export default function AlertContainer({
       threshold,
       timeWindow / samplingRate
     );
-    console.log(alertConditionMet, "<-----------------alertConditionMet", alert);
     if (alertConditionMet) {
       var notificationText =  `Load Time Went ${newAlert} the threshold of ${threshold}`
       var notification = new Notification("Load Time Alert", { body: notificationText });

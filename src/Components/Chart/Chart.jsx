@@ -15,12 +15,12 @@ import {
   TIME_RANGE_MIN,
   TIME_RANGE_STEP,
   TIME_RANGE_OPTIONS,
-} from "../../Constants/Constants";
+} from "../../constants/Constants";
 import RadioButtons from "../../SurveyComponents/RadioButtons/RadioButtons";
 import style from "./Charts.css";
-import Range from "../MaterialRange/Range";
+import Range from "../material_range/Range";
 import { Grid, CardHeader, CircularProgress } from "@material-ui/core";
-import InfoIcon from "../InfoIcon/InfoIcon";
+import InfoIcon from "../dumb_components/info_icon/InfoIcon";
 
 function Chart({ chartData = [{}], threshold, samplingRate, timeWindow }) {
   const [xWindow, setxWindow] = useState(30);
@@ -54,13 +54,6 @@ function Chart({ chartData = [{}], threshold, samplingRate, timeWindow }) {
   if (datalen < TIME_RANGE_MIN / samplingRate)
     return <LoadingCharts />;
 
-  console.log(
-    startWindow > 0,
-    datalen < TIME_RANGE_MIN / samplingRate,
-    chartData[startWindow],
-    startWindow,
-    "<-----------------chartData"
-  );
   return (
     <div className={style['chart-container']}>
      <div className={style['info-icon-container']}><InfoIcon infoText={'You change change how much of your load time you can see at a time, with the maximum window being 10 minutes. You can also change the threshold and the alert window you will receive alerts for'} /></div> 

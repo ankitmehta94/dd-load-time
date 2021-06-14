@@ -1,5 +1,5 @@
 import { checkIfAlertConditionIsTrue, eventDict, getNextAlertType, createAlertObject } from './AlertingUtils';
-import { THRESHOLD_DEFAULT, ALERT_WINDOW_DEFAULT } from '../Constants/Constants';
+import { THRESHOLD_DEFAULT, ALERT_WINDOW_DEFAULT } from '../constants/Constants';
 import constant_chart_data from "./AlertSnapShot.json";
 // const constant_chart_data = require('./AlertSnapShot.json')
 const chartData = [];
