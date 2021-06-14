@@ -9,3 +9,5 @@ export default function InfoIcon({}) {
         <FontAwesomeIcon className={style['font-btn']} size="lg" icon={faInfoCircle} dataTooltip={'Hakuna Mattaa'} /> 
     </div>
 }
+//TODO: GET it to work
+//TODO: File name should be smallcase

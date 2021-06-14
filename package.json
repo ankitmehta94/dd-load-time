@@ -7,6 +7,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@material-ui/core": "^4.11.4",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "@svgr/webpack": "5.5.0",
     "@testing-library/jest-dom": "^5.13.0",
@@ -78,6 +79,8 @@
     "workbox-webpack-plugin": "5.1.4"
   },
   "scripts": {
+    "app": "node scripts/start.js && node backend_src/app.js",
+    "backend": "node backend_src/app.js",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"

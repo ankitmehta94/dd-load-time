@@ -3,6 +3,7 @@ import style from "./Header.css";
 import Logo from "../../Assests/logo.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDog } from '@fortawesome/free-solid-svg-icons'
+// TODO: LOGO add name like info puppy
 export default function Header({threshold, setthreshold,timeWindow, settimeWindow }) {
     return (
         <div className={style['header']}>

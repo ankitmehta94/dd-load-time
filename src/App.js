@@ -4,7 +4,6 @@ import Header from "./Components/Header/Header";
 import Content from "./Components/Content/Content";
 import style from "./App.css";
 import { ALERT_WINDOW_DEFAULT, THRESHOLD_DEFAULT } from './Constants/Constants';
-
 function App() {
   const [threshold, setthreshold] = useState(THRESHOLD_DEFAULT);
   const [timeWindow, settimeWindow] = useState(ALERT_WINDOW_DEFAULT);

@@ -36,7 +36,7 @@ export default function AlertContainer({
   useEffect(() => {
     const datalen = chartData.length;
     const alertLen = alertState.length;
-    const { y } = chartData[datalen - 1] || {};
+    const { y } = chartData[datalen - 1] || {};// TODO: change y to make sense 
     const { alert = ABOVE_CONDITION_KEY } = alertState[alertLen - 1] || {};
     console.log(alert, "<-----------------alert");
     const newAlert =
@@ -46,10 +46,10 @@ export default function AlertContainer({
       newAlert,
       threshold,
       timeWindow / samplingRate
-    );
+    );// TODO: change flag to make sense 
     console.log(flag, "<-----------------flag", alert);
     if (flag) {
-      var text = 'HEY! Your task "' + newAlert + '" is now overdue.';
+      var text = 'HEY! Your task "' + newAlert + '" is now overdue.';// TODO: change text to make sense 
       var notification = new Notification("To do list", { body: text });
       alertState.push({
         alert: newAlert,
